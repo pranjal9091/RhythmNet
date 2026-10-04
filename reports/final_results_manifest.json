@@ -1,0 +1,149 @@
+{
+  "project": "Inter-Patient ECG Arrhythmia Classification",
+  "version": "1.0.0",
+  "dataset": {
+    "name": "PhysioNet MIT-BIH Arrhythmia Database",
+    "sampling_rate_hz": 360,
+    "lead": "MLII",
+    "partition_protocol": "de Chazal et al. (2004) Inter-Patient Split",
+    "train_val_split_ds1": {
+      "num_records": 22,
+      "record_ids": ["101", "106", "108", "109", "112", "114", "115", "116", "118", "119", "122", "124", "201", "203", "205", "207", "208", "209", "215", "220", "223", "230"],
+      "total_beats": 51020
+    },
+    "test_split_ds2": {
+      "num_records": 22,
+      "record_ids": ["100", "103", "105", "111", "113", "117", "121", "123", "200", "202", "210", "212", "213", "214", "219", "221", "222", "228", "231", "232", "233", "234"],
+      "total_beats": 49712
+    },
+    "classes_aami_ec57": {
+      "0": "N (Normal / Bundle Branch Block)",
+      "1": "S (Supraventricular Ectopic Beat)",
+      "2": "V (Premature Ventricular Contraction)",
+      "3": "F (Fusion Beat)",
+      "4": "Q (Unknown / Unclassifiable Beat)"
+    }
+  },
+  "preprocessing": {
+    "bandpass_filter": "4th-order zero-phase Butterworth (0.5 - 40.0 Hz)",
+    "beat_window_samples": 216,
+    "pre_r_peak_samples": 72,
+    "post_r_peak_samples": 144,
+    "normalization": "Per-beat z-score: (x - mean) / (std + 1e-8)"
+  },
+  "m5_classical_baseline_test_metrics": {
+    "logistic_regression": {
+      "accuracy": 0.9321,
+      "balanced_accuracy": 0.3923,
+      "macro_f1": 0.3968,
+      "weighted_f1": 0.9215,
+      "inference_latency_ms_per_beat": 0.000047,
+      "model_size_mb": 0.0025
+    },
+    "random_forest": {
+      "accuracy": 0.9475,
+      "balanced_accuracy": 0.4050,
+      "macro_f1": 0.4201,
+      "weighted_f1": 0.9313,
+      "inference_latency_ms_per_beat": 0.001806,
+      "model_size_mb": 27.16
+    },
+    "xgboost": {
+      "accuracy": 0.9429,
+      "balanced_accuracy": 0.4805,
+      "macro_f1": 0.4699,
+      "weighted_f1": 0.9327,
+      "inference_latency_ms_per_beat": 0.001502,
+      "model_size_mb": 4.49
+    }
+  },
+  "m6_cnn_baseline_test_metrics": {
+    "1d_cnn_unweighted": {
+      "accuracy": 0.8926,
+      "balanced_accuracy": 0.3402,
+      "macro_f1": 0.3081,
+      "weighted_f1": 0.8772,
+      "ece": 0.0217,
+      "per_class_f1": {
+        "N": 0.9417,
+        "S": 0.0,
+        "V": 0.5991,
+        "F": 0.0,
+        "Q": 0.0
+      },
+      "model_size_mb": 1.436
+    }
+  },
+  "m7_imbalance_experiments_test_metrics": {
+    "cnn_unweighted": { "accuracy": 0.8926, "macro_f1": 0.3081, "S_f1": 0.0000, "V_f1": 0.5991 },
+    "cnn_weighted_inverse": { "accuracy": 0.7621, "macro_f1": 0.3064, "S_f1": 0.0279, "V_f1": 0.6271 },
+    "cnn_weighted_sqrt_inverse": { "accuracy": 0.8610, "macro_f1": 0.2820, "S_f1": 0.0021, "V_f1": 0.4735 },
+    "cnn_focal_loss": { "accuracy": 0.8757, "macro_f1": 0.3105, "S_f1": 0.0162, "V_f1": 0.6009 },
+    "cnn_oversampling": { "accuracy": 0.7643, "macro_f1": 0.3075, "S_f1": 0.0423, "V_f1": 0.6292 }
+  },
+  "m8_calibration_and_explainability": {
+    "temperature_scaling_factor_T": 0.9854227900505066,
+    "uncalibrated_ece_test": 0.0810,
+    "calibrated_ece_test": 0.0774,
+    "uncalibrated_val_ece": 0.1369,
+    "calibrated_val_ece": 0.1337,
+    "explainability_method": "Integrated Gradients",
+    "key_attribution_regions": "QRS complex peak (samples 60-85) and ST segment (samples 90-130)"
+  },
+  "m9_onnx_quantization": {
+    "pytorch_fp32": {
+      "accuracy": 0.8757,
+      "macro_f1": 0.3105,
+      "model_size_mb": 0.468,
+      "latency_single_beat_ms": 0.160,
+      "throughput_beats_per_sec": 403.3
+    },
+    "onnx_fp32": {
+      "accuracy": 0.8757,
+      "macro_f1": 0.3105,
+      "model_size_mb": 0.036,
+      "latency_single_beat_ms": 0.092,
+      "throughput_beats_per_sec": 17810.7
+    },
+    "onnx_int8": {
+      "accuracy": 0.8805,
+      "macro_f1": 0.3126,
+      "model_size_mb": 0.158,
+      "latency_single_beat_ms": 0.045,
+      "throughput_beats_per_sec": 40189.4,
+      "prediction_agreement_with_fp32_pct": 99.12
+    }
+  },
+  "m10_deployment_architecture": {
+    "serving_framework": "FastAPI 0.115+",
+    "onnx_runtime_execution_provider": "CPUExecutionProvider",
+    "dashboard_framework": "Streamlit 1.41+",
+    "containerization": "Docker & Docker Compose",
+    "api_endpoints": [
+      "GET /health",
+      "GET /ready",
+      "POST /predict/beat",
+      "POST /predict/batch",
+      "POST /predict/signal"
+    ]
+  },
+  "m12_continuous_ecg_rpeak_evaluation": {
+    "detector": "Pan-Tompkins Algorithm (0.5-40Hz Bandpass + Derivative + Squaring + Moving Average + Adaptive Percentile Peak Detection)",
+    "evaluation_records": 22,
+    "matching_tolerance_ms": 150.0,
+    "total_annotated_beats": 49712,
+    "total_detected_peaks": 49616,
+    "true_positives": 49503,
+    "false_positives": 113,
+    "false_negatives": 209,
+    "sensitivity_recall": 0.9958,
+    "ppv_precision": 0.9977,
+    "f1_score": 0.9968,
+    "mean_abs_timing_error_ms": 3.12,
+    "median_timing_error_ms": 0.0,
+    "segmented_beats_processed": 49598,
+    "boundary_rejected_beats": 18,
+    "segmentation_success_rate_pct": 99.96,
+    "end_to_end_cpu_throughput_beats_per_sec": 17907.85
+  }
+}

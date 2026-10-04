@@ -1,0 +1,12 @@
+# Experiment and Training Configuration
+experiment:
+  seed: 42
+  device: "auto"  # "auto", "cpu", "cuda", "mps"
+  batch_size: 64
+  epochs: 50
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  early_stopping_patience: 10
+  tracking:
+    backend: "local"  # "local", "mlflow", "wandb"
+    output_dir: "reports/experiments"

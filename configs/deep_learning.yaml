@@ -1,0 +1,29 @@
+# Configuration for Deep Learning Models & 1D CNN Baseline
+
+seed: 42
+
+model:
+  name: "cnn_1d"
+  in_channels: 1
+  input_length: 216
+  num_classes: 5
+  dropout_rates: [0.15, 0.20, 0.30]
+
+training:
+  batch_size: 256
+  max_epochs: 40
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  early_stopping_patience: 7
+
+scheduler:
+  type: "reduce_on_plateau"
+  factor: 0.5
+  patience: 3
+
+evaluation:
+  labels: ["N", "S", "V", "F", "Q"]
+  ece_bins: 10
+
+runtime:
+  num_workers: 0

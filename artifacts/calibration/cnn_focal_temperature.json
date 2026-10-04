@@ -1,0 +1,10 @@
+{
+  "model": "cnn_focal",
+  "temperature": 0.9854227900505066,
+  "fitting_split": "validation",
+  "objective": "negative_log_likelihood",
+  "val_nll_before": 0.5432617664337158,
+  "val_nll_after": 0.5429621934890747,
+  "n_bins": 10,
+  "seed": 42
+}

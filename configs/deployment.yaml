@@ -1,0 +1,29 @@
+# Configuration for Milestone 9 — Model Selection, ONNX Export & INT8 Quantization
+
+seed: 42
+
+selected_model: cnn_focal
+
+export:
+  opset_version: 17
+  input_shape: [1, 1, 216]
+  fp32_output_path: artifacts/deployment/model_fp32.onnx
+  int8_output_path: artifacts/deployment/model_int8.onnx
+
+quantization:
+  method: static
+  calibration_split: train
+  n_calibration_samples: 500
+  activation_type: QInt8
+  weight_type: QInt8
+
+benchmark:
+  single_batch_size: 1
+  large_batch_size: 256
+  n_warmup: 20
+  n_runs: 200
+
+reports:
+  deployment_comparison_csv: reports/tables/deployment_comparison.csv
+  onnx_validation_csv: reports/tables/onnx_validation.csv
+  quantization_config_csv: reports/tables/quantization_config.csv

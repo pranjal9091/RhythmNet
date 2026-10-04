@@ -1,0 +1,10 @@
+# Deep Learning - 1D CNN Architecture (Active in Milestone 6)
+model:
+  name: "1d_cnn"
+  in_channels: 1
+  num_classes: 5
+  conv_channels: [32, 64, 128]
+  kernel_sizes: [7, 5, 3]
+  pool_size: 2
+  dropout: 0.3
+  fc_dim: 128

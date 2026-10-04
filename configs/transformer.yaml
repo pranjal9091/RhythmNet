@@ -1,0 +1,11 @@
+# Deep Learning - CNN + Transformer Architecture (Active in Milestone 6)
+model:
+  name: "cnn_transformer"
+  in_channels: 1
+  num_classes: 5
+  patch_size: 16
+  d_model: 64
+  nhead: 4
+  num_layers: 2
+  dim_feedforward: 128
+  dropout: 0.2

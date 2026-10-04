@@ -1,0 +1,29 @@
+# Hand-Crafted Feature Extraction Pipeline Configuration
+morphology:
+  enabled: true
+  percentiles: [5, 10, 25, 50, 75, 90, 95]
+
+shape:
+  enabled: true
+
+qrs:
+  enabled: true
+  amplitude_fractions: [0.25, 0.50, 0.75]
+  early_window_end: 54      # samples 0 to 54
+  central_window_end: 90    # samples 54 to 90
+  total_samples: 216
+
+rr:
+  enabled: true
+  sampling_frequency: 360
+  local_window_beats: 5     # 5 beats surrounding local context
+
+wavelet:
+  enabled: true
+  wavelet_name: "db4"
+  decomposition_level: 4
+
+preprocessing:
+  imputer_strategy: "median"
+  scaler: "standard"
+  save_artifact_dir: "artifacts/features"

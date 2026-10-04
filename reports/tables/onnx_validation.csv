@@ -1,0 +1,2 @@
+model,opset_version,max_abs_difference,mean_abs_difference,max_rel_difference,samples_verified,validation_passed
+cnn_focal,17,2.648681402206421e-06,5.5686234645691e-07,0.00033539667492732406,1024,True

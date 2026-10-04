@@ -1,0 +1,21 @@
+# Preprocessing Configuration for ECG Signal Filtering & Beat Segmentation
+lead:
+  primary: "MLII"
+  fallbacks: ["V5", "V1", "V2", "V4"]
+
+filter:
+  enabled: true
+  type: "butterworth"
+  low_hz: 0.5
+  high_hz: 40.0
+  order: 4
+  zero_phase: true
+
+segmentation:
+  pre_samples: 72    # 200 ms @ 360 Hz
+  post_samples: 144  # 400 ms @ 360 Hz
+  total_samples: 216
+
+normalization:
+  method: "per_beat_zscore"
+  epsilon: 1.0e-8

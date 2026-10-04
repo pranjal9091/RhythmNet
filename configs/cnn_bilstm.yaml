@@ -1,0 +1,11 @@
+# Deep Learning - CNN + BiLSTM Architecture (Active in Milestone 6)
+model:
+  name: "cnn_bilstm"
+  in_channels: 1
+  num_classes: 5
+  conv_channels: [32, 64]
+  kernel_sizes: [7, 5]
+  lstm_hidden_dim: 64
+  lstm_num_layers: 2
+  bidirectional: true
+  dropout: 0.3

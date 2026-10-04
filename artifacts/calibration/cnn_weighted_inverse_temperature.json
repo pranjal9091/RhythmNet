@@ -1,0 +1,10 @@
+{
+  "model": "cnn_weighted_inverse",
+  "temperature": 1.3162012100219727,
+  "fitting_split": "validation",
+  "objective": "negative_log_likelihood",
+  "val_nll_before": 1.4904229640960693,
+  "val_nll_after": 1.2817236185073853,
+  "n_bins": 10,
+  "seed": 42
+}

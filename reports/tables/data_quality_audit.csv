@@ -1,0 +1,31 @@
+check_name,partition,passed,issue_count,severity,details
+nan_or_inf_in_waveforms,train,True,0,CRITICAL,Found 0 NaNs and 0 Infs in train beats array.
+invalid_waveform_shape,train,True,0,CRITICAL,"Shape is (41262, 216), expected (N, 216)."
+metadata_count_mismatch,train,True,0,CRITICAL,Waveforms count (41262) vs Metadata rows (41262).
+duplicate_beat_ids,train,True,0,HIGH,Found 0 duplicate beat_id values.
+duplicate_record_sample_pairs,train,True,0,HIGH,"Found 0 duplicate (record_id, sample_index) pairs."
+invalid_aami_labels,train,True,0,CRITICAL,Found 0 invalid AAMI class labels.
+missing_required_columns,train,True,0,HIGH,Missing metadata columns: []
+inconsistent_sampling_frequency,train,True,0,MEDIUM,Found 0 rows with fs != 360 Hz.
+zero_variance_waveforms,train,True,0,MEDIUM,Found 0 beats with standard deviation < 1e-6.
+impossible_rr_intervals,train,False,3,LOW,Found 3 RR intervals outside physiological bounds (0.2s - 3.0s).
+nan_or_inf_in_waveforms,val,True,0,CRITICAL,Found 0 NaNs and 0 Infs in val beats array.
+invalid_waveform_shape,val,True,0,CRITICAL,"Shape is (9744, 216), expected (N, 216)."
+metadata_count_mismatch,val,True,0,CRITICAL,Waveforms count (9744) vs Metadata rows (9744).
+duplicate_beat_ids,val,True,0,HIGH,Found 0 duplicate beat_id values.
+duplicate_record_sample_pairs,val,True,0,HIGH,"Found 0 duplicate (record_id, sample_index) pairs."
+invalid_aami_labels,val,True,0,CRITICAL,Found 0 invalid AAMI class labels.
+missing_required_columns,val,True,0,HIGH,Missing metadata columns: []
+inconsistent_sampling_frequency,val,True,0,MEDIUM,Found 0 rows with fs != 360 Hz.
+zero_variance_waveforms,val,True,0,MEDIUM,Found 0 beats with standard deviation < 1e-6.
+impossible_rr_intervals,val,False,6,LOW,Found 6 RR intervals outside physiological bounds (0.2s - 3.0s).
+nan_or_inf_in_waveforms,test,True,0,CRITICAL,Found 0 NaNs and 0 Infs in test beats array.
+invalid_waveform_shape,test,True,0,CRITICAL,"Shape is (49694, 216), expected (N, 216)."
+metadata_count_mismatch,test,True,0,CRITICAL,Waveforms count (49694) vs Metadata rows (49694).
+duplicate_beat_ids,test,True,0,HIGH,Found 0 duplicate beat_id values.
+duplicate_record_sample_pairs,test,True,0,HIGH,"Found 0 duplicate (record_id, sample_index) pairs."
+invalid_aami_labels,test,True,0,CRITICAL,Found 0 invalid AAMI class labels.
+missing_required_columns,test,True,0,HIGH,Missing metadata columns: []
+inconsistent_sampling_frequency,test,True,0,MEDIUM,Found 0 rows with fs != 360 Hz.
+zero_variance_waveforms,test,True,0,MEDIUM,Found 0 beats with standard deviation < 1e-6.
+impossible_rr_intervals,test,False,32,LOW,Found 32 RR intervals outside physiological bounds (0.2s - 3.0s).

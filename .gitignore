@@ -1,0 +1,60 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+.venv/
+env/
+venv/
+ENV/
+
+# Data and Artifacts (Never commit raw clinical datasets or large intermediate arrays)
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+data/features/*
+!data/features/.gitkeep
+
+# Models & Training Checkpoints (Keep large PyTorch training checkpoints out of git)
+artifacts/models/*
+!artifacts/models/.gitkeep
+
+# Exclude large beat-by-beat prediction dumps
+reports/predictions/*
+!reports/predictions/.gitkeep
+
+# Jupyter Notebooks checkpoints
+.ipynb_checkpoints
+
+# Environment Variables & Secrets
+.env
+.env.local
+
+# IDE & OS
+.DS_Store
+.vscode/
+.idea/
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/

@@ -1,0 +1,2 @@
+model,total_parameters,trainable_parameters,checkpoint_size_mb,inference_latency_ms_per_beat,single_beat_latency_ms,throughput_beats_per_sec,device
+1D_CNN,121765,121765,1.4341459274291992,0.04773913383506427,0.5269425000005867,20947.175192891802,mps

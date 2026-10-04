@@ -1,0 +1,2 @@
+model,quantization_method,calibration_split,n_calibration_samples,activation_type,weight_type,calibration_dataset_size,test_labels_accessed
+cnn_focal,static_qdq,train,500,QInt8,QInt8,41262,False

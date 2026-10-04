@@ -1,0 +1,38 @@
+example_id,beat_id,record_id,sample_index,true_class,predicted_class,confidence,selection_reason,dataset_index,model,split,completeness_error
+N_correct,test_017006,200,306855,N,N,0.9988985,High-confidence correct N beat,17006,cnn_unweighted,test,0.06960368156433105
+V_correct,test_029416,214,78383,V,V,0.98641765,High-confidence correct V beat,29416,cnn_unweighted,test,0.06530454754829407
+N_to_V,test_038720,228,80151,N,V,0.98331684,Highest-confidence misclassification N -> V,38720,cnn_unweighted,test,0.10216167569160461
+V_to_N,test_033025,219,497278,V,N,0.9965029,Highest-confidence misclassification V -> N,33025,cnn_unweighted,test,0.06619763374328613
+S_to_N,test_017198,200,350459,S,N,0.99813384,Highest-confidence misclassification S -> N,17198,cnn_unweighted,test,0.09662318229675293
+F_to_N,test_025999,213,21791,F,N,0.9976191,Highest-confidence misclassification F -> N,25999,cnn_unweighted,test,0.06203961372375488
+N_correct,test_017021,200,310066,N,N,0.9842106,High-confidence correct N beat,17021,cnn_focal,test,0.02794468402862549
+V_correct,test_034717,221,303257,V,V,0.9831933,High-confidence correct V beat,34717,cnn_focal,test,0.07790124416351318
+S_correct,test_038113,222,575339,S,S,0.62883395,High-confidence correct S beat,38113,cnn_focal,test,0.10307526588439941
+F_correct,test_019698,202,467065,F,F,0.5334082,High-confidence correct F beat,19698,cnn_focal,test,0.020088762044906616
+N_to_V,test_007982,111,326239,N,V,0.95846015,Highest-confidence misclassification N -> V,7982,cnn_focal,test,0.08555495738983154
+V_to_N,test_023076,210,634129,V,N,0.9741924,Highest-confidence misclassification V -> N,23076,cnn_focal,test,0.020792365074157715
+S_to_N,test_000230,100,66792,S,N,0.97872466,Highest-confidence misclassification S -> N,230,cnn_focal,test,0.015095114707946777
+F_to_N,test_028020,213,422312,F,N,0.97469294,Highest-confidence misclassification F -> N,28020,cnn_focal,test,0.0022202730178833008
+N_correct,test_049213,234,534427,N,N,0.98590785,High-confidence correct N beat,49213,cnn_weighted_inverse,test,0.042684197425842285
+V_correct,test_034960,221,365557,V,V,0.9947574,High-confidence correct V beat,34960,cnn_weighted_inverse,test,0.13994914293289185
+S_correct,test_036925,222,270956,S,S,0.9867857,High-confidence correct S beat,36925,cnn_weighted_inverse,test,0.03200984001159668
+F_correct,test_044252,233,80775,F,F,0.97127455,High-confidence correct F beat,44252,cnn_weighted_inverse,test,0.17546653747558594
+N_to_V,test_029417,214,78717,N,V,0.98614,Highest-confidence misclassification N -> V,29417,cnn_weighted_inverse,test,0.01852637529373169
+V_to_N,test_033025,219,497278,V,N,0.98105055,Highest-confidence misclassification V -> N,33025,cnn_weighted_inverse,test,0.10205972194671631
+S_to_N,test_023118,210,644411,S,N,0.9899893,Highest-confidence misclassification S -> N,23118,cnn_weighted_inverse,test,0.046915650367736816
+F_to_N,test_028036,213,425533,F,N,0.9699164,Highest-confidence misclassification F -> N,28036,cnn_weighted_inverse,test,0.12040507793426514
+N_correct,test_037940,222,531975,N,N,0.9989273,High-confidence correct N beat,37940,cnn_weighted_sqrt_inverse,test,0.033244788646698
+V_correct,test_017284,200,371587,V,V,0.99859756,High-confidence correct V beat,17284,cnn_weighted_sqrt_inverse,test,0.035036563873291016
+S_correct,test_037557,222,433189,S,S,0.63033575,High-confidence correct S beat,37557,cnn_weighted_sqrt_inverse,test,0.1057136058807373
+N_to_V,test_008531,111,496180,N,V,0.9964414,Highest-confidence misclassification N -> V,8531,cnn_weighted_sqrt_inverse,test,0.03434944152832031
+V_to_N,test_031089,214,562735,V,N,0.99802184,Highest-confidence misclassification V -> N,31089,cnn_weighted_sqrt_inverse,test,0.08425110578536987
+S_to_N,test_022801,210,566020,S,N,0.99886405,Highest-confidence misclassification S -> N,22801,cnn_weighted_sqrt_inverse,test,0.08665579557418823
+F_to_N,test_026289,213,78654,F,N,0.9979845,Highest-confidence misclassification F -> N,26289,cnn_weighted_sqrt_inverse,test,0.08432644605636597
+N_correct,test_003674,103,433958,N,N,0.965363,High-confidence correct N beat,3674,cnn_oversampling,test,0.014388561248779297
+V_correct,test_034717,221,303257,V,V,0.9991359,High-confidence correct V beat,34717,cnn_oversampling,test,0.07758092880249023
+S_correct,test_036828,222,246281,S,S,0.99202794,High-confidence correct S beat,36828,cnn_oversampling,test,0.11380481719970703
+F_correct,test_019698,202,467065,F,F,0.55836225,High-confidence correct F beat,19698,cnn_oversampling,test,0.10845959186553955
+N_to_V,test_006098,105,448931,N,V,0.9968831,Highest-confidence misclassification N -> V,6098,cnn_oversampling,test,0.034775733947753906
+V_to_N,test_029811,214,191950,V,N,0.95870036,Highest-confidence misclassification V -> N,29811,cnn_oversampling,test,0.047031402587890625
+S_to_N,test_023118,210,644411,S,N,0.95326626,Highest-confidence misclassification S -> N,23118,cnn_oversampling,test,0.004171848297119141
+F_to_N,test_028036,213,425533,F,N,0.93447787,Highest-confidence misclassification F -> N,28036,cnn_oversampling,test,0.01779031753540039

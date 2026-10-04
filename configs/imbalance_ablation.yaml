@@ -1,0 +1,51 @@
+# Configuration for Milestone 7 — Class Imbalance Ablation Study
+
+seed: 42
+
+model:
+  name: "cnn_1d"
+  in_channels: 1
+  input_length: 216
+  num_classes: 5
+  dropout_rates: [0.15, 0.20, 0.30]
+
+training:
+  batch_size: 256
+  max_epochs: 40
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  early_stopping_patience: 7
+
+scheduler:
+  type: "reduce_on_plateau"
+  factor: 0.5
+  patience: 3
+
+evaluation:
+  labels: ["N", "S", "V", "F", "Q"]
+  ece_bins: 10
+
+runtime:
+  num_workers: 0
+
+experiments:
+  - name: "cnn_unweighted"
+    strategy: "unweighted_ce"
+    description: "Unweighted CrossEntropyLoss reference baseline"
+
+  - name: "cnn_weighted_inverse"
+    strategy: "weighted_ce_inverse"
+    description: "Inverse-frequency weighted CrossEntropyLoss"
+
+  - name: "cnn_weighted_sqrt_inverse"
+    strategy: "weighted_ce_sqrt_inverse"
+    description: "Square-root inverse-frequency weighted CrossEntropyLoss"
+
+  - name: "cnn_focal"
+    strategy: "focal"
+    gamma: 2.0
+    description: "Multiclass Focal Loss (gamma=2.0, alpha=none)"
+
+  - name: "cnn_oversampling"
+    strategy: "weighted_random_sampler"
+    description: "Train-set inverse-frequency WeightedRandomSampler"

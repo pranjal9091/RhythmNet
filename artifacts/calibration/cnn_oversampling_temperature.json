@@ -1,0 +1,10 @@
+{
+  "model": "cnn_oversampling",
+  "temperature": 1.3015036582946777,
+  "fitting_split": "validation",
+  "objective": "negative_log_likelihood",
+  "val_nll_before": 1.4391571283340454,
+  "val_nll_after": 1.2831453084945679,
+  "n_bins": 10,
+  "seed": 42
+}

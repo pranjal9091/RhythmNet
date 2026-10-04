@@ -1,0 +1,53 @@
+{
+  "evaluation_records": [
+    "100",
+    "103",
+    "105",
+    "111",
+    "113",
+    "117",
+    "121",
+    "123",
+    "200",
+    "202",
+    "210",
+    "212",
+    "213",
+    "214",
+    "219",
+    "221",
+    "222",
+    "228",
+    "231",
+    "232",
+    "233",
+    "234"
+  ],
+  "matching_tolerance_sec": 0.15,
+  "matching_tolerance_ms": 150.0,
+  "num_records": 22,
+  "total_annotated_beats": 49712,
+  "total_detected_peaks": 49616,
+  "total_processed_beats": 49598,
+  "total_boundary_rejected": 18,
+  "segmentation_success_rate_pct": 99.9637,
+  "aggregate_detector_metrics": {
+    "tp": 49503,
+    "fp": 113,
+    "fn": 209,
+    "sensitivity_recall": 0.9958,
+    "ppv_precision": 0.9977,
+    "f1_score": 0.9968,
+    "mean_abs_timing_error_ms": 3.12,
+    "median_timing_error_ms": 0.0
+  },
+  "predicted_class_distribution": {
+    "N": 43425,
+    "S": 417,
+    "V": 5596,
+    "F": 160,
+    "Q": 0
+  },
+  "inference_throughput_beats_per_sec": 17907.85,
+  "total_eval_time_sec": 2.77
+}

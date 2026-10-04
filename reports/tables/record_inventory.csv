@@ -1,0 +1,5 @@
+record_id,sampling_rate_hz,n_channels,channels,duration_sec,n_samples,total_annotations,comments
+100,360,2,MLII/V5,1805.5555555555557,650000,2274,"69 M 1085 1629 x1 | Aldomet, Inderal"
+101,360,2,MLII/V1,1805.5555555555557,650000,1874,75 F 1011 654 x1 | Diapres
+106,360,2,MLII/V1,1805.5555555555557,650000,2098,24 F 1581 654 x1 | Inderal | The PVCs are multiform.
+200,360,2,MLII/V1,1805.5555555555557,650000,2792,"64 M 1953 3655 x1 | Digoxin, Quinidine | The PVCs are multiform.  There are occasional bursts of high-frequency | noise in the upper channel, and severe noise and artifact in the lower | channel."

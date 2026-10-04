@@ -1,0 +1,15 @@
+# Exploratory Data Analysis (EDA) & Dataset Audit Configuration
+sampling_frequency: 360
+
+plots:
+  dpi: 200
+  waveform_examples_per_class: 5
+  overlay_examples_per_class: 100
+
+statistics:
+  percentiles: [1, 5, 25, 50, 75, 95, 99]
+
+rr:
+  enabled: true
+  min_valid_sec: 0.2  # 300 bpm max threshold
+  max_valid_sec: 3.0  # 20 bpm min threshold

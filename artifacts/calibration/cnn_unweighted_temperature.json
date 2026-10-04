@@ -1,0 +1,10 @@
+{
+  "model": "cnn_unweighted",
+  "temperature": 0.9691917300224304,
+  "fitting_split": "validation",
+  "objective": "negative_log_likelihood",
+  "val_nll_before": 0.35395610332489014,
+  "val_nll_after": 0.3527371883392334,
+  "n_bins": 10,
+  "seed": 42
+}

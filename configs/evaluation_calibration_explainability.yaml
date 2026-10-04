@@ -1,0 +1,30 @@
+# Configuration for Milestone 8 — Evaluation, Calibration & Explainability
+
+seed: 42
+
+calibration:
+  methods:
+    - uncalibrated
+    - temperature_scaling
+  n_bins: 10
+  optimization: "nll"
+
+explainability:
+  methods:
+    - input_gradient
+    - integrated_gradients
+    - gradcam
+
+  integrated_gradients:
+    baseline: "zero"
+    n_steps: 50
+
+  aggregate:
+    max_examples_per_class: 100
+
+models:
+  - cnn_unweighted
+  - cnn_focal
+  - cnn_weighted_inverse
+  - cnn_weighted_sqrt_inverse
+  - cnn_oversampling

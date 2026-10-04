@@ -1,0 +1,2 @@
+model,device,seed,total_epochs_trained,best_epoch,best_val_macro_f1,total_training_time_sec,avg_epoch_time_sec
+1D_CNN,mps,42,8,1,0.3398193028857681,47.920451164245605,5.986060827970505

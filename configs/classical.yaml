@@ -1,0 +1,42 @@
+# Configuration for Classical Machine Learning Baselines
+
+models:
+  logistic_regression:
+    enabled: true
+    solver: "lbfgs"
+    max_iter: 2000
+    multi_class: "auto"
+    random_state: 42
+  
+  random_forest:
+    enabled: true
+    n_estimators: 300
+    class_weight: null
+    random_state: 42
+    n_jobs: -1
+  
+  xgboost:
+    enabled: true
+    n_estimators: 300
+    max_depth: 6
+    learning_rate: 0.05
+    subsample: 0.8
+    colsample_bytree: 0.8
+    objective: "multi:softprob"
+    eval_metric: "mlogloss"
+    random_state: 42
+    n_jobs: -1
+
+label_mapping:
+  N: 0
+  S: 1
+  V: 2
+  F: 3
+  Q: 4
+
+evaluation:
+  labels: ["N", "S", "V", "F", "Q"]
+  ece_bins: 10
+
+reproducibility:
+  seed: 42
