@@ -413,16 +413,31 @@ def render_dashboard() -> None:
     )
 
     project_root = get_project_root()
-    beats_path = project_root / "data" / "processed" / "test" / "beats.npy"
-    metadata_path = project_root / "data" / "processed" / "test" / "metadata.csv"
+    full_beats_path = project_root / "data" / "processed" / "test" / "beats.npy"
+    full_metadata_path = project_root / "data" / "processed" / "test" / "metadata.csv"
+    demo_beats_path = project_root / "reports" / "demo" / "sample_test_beats.npy"
+    demo_metadata_path = project_root / "reports" / "demo" / "sample_test_metadata.csv"
+
+    if full_beats_path.exists() and full_metadata_path.exists():
+        beats_path = full_beats_path
+        metadata_path = full_metadata_path
+        is_demo_subset = False
+    elif demo_beats_path.exists() and demo_metadata_path.exists():
+        beats_path = demo_beats_path
+        metadata_path = demo_metadata_path
+        is_demo_subset = True
+    else:
+        beats_path = None
+        metadata_path = None
+        is_demo_subset = False
 
     selected_signal: Optional[np.ndarray] = None
     sample_info: Dict[str, Any] = {}
 
     if mode == "MODE A — Test Dataset":
         st.sidebar.subheader("Dataset Controls")
-        if not beats_path.exists() or not metadata_path.exists():
-            st.error(f"Test dataset files not found at `{beats_path}`. Please verify dataset files.")
+        if beats_path is None or metadata_path is None:
+            st.warning("⚠️ Full local dataset not found on this deployment. Please select **MODE B — Manual Beat Input** or upload a 216-sample beat.")
             st.stop()
             return
 
@@ -430,6 +445,9 @@ def render_dashboard() -> None:
             df_meta = pd.read_csv(metadata_path)
             total_beats = len(df_meta)
             
+            if is_demo_subset:
+                st.sidebar.info(f"ℹ️ Serving bundled MIT-BIH test benchmark subset ({total_beats} beats across all 5 AAMI classes N, S, V, F, Q).")
+
             class_filter = st.sidebar.selectbox(
                 "Filter by Ground-Truth Class:",
                 ["All Classes"] + sorted(list(df_meta["aami_class"].unique())),
@@ -481,6 +499,12 @@ def render_dashboard() -> None:
                 height=150,
                 placeholder="0.01, -0.05, 0.12, ... (216 float numbers)",
             )
+
+        sample_beat_path = project_root / "reports" / "demo" / "sample_ecg_beat.csv"
+        if sample_beat_path.exists():
+            if st.sidebar.button("📋 Load Example Beat (Record 100)"):
+                raw_input_text = sample_beat_path.read_text()
+                st.sidebar.success("Loaded Record 100 sample beat!")
 
         if raw_input_text:
             try:
