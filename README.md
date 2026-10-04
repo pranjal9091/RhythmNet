@@ -1,5 +1,6 @@
 # RhythmNet: Inter-Patient ECG Arrhythmia Classification & Continuous Stream Processing
 
+[![Streamlit App](https://img.shields.io/badge/Live%20Demo-Streamlit%20Cloud-FF4B4B.svg?logo=streamlit&logoColor=white)](https://appapppy-fjy6mg2n2xbnrjzyezklmz.streamlit.app/)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Docker](https://img.shields.io/badge/Deployment-Docker%20Compose-2496ED.svg)](docker-compose.yml)
@@ -10,15 +11,24 @@ A research-grade, production-hardened machine learning and deep learning system 
 
 ---
 
-## Quick Start (One-Liner)
+## Live Interactive Web Demo
 
-Deploy the containerized FastAPI inference engine and interactive Streamlit clinical dashboard with a single command:
+Access the live cloud deployment directly without local installation:
+
+**[Launch RhythmNet Clinical Dashboard](https://appapppy-fjy6mg2n2xbnrjzyezklmz.streamlit.app/)**
+
+---
+
+## Local Quick Start (One-Liner)
+
+Deploy the containerized FastAPI inference engine and interactive Streamlit clinical dashboard locally with a single command:
 
 ```bash
 docker compose up -d --build && open http://localhost:8501
 ```
 
-* **Streamlit Dashboard**: `http://localhost:8501`
+* **Live Cloud Deployment**: [`https://appapppy-fjy6mg2n2xbnrjzyezklmz.streamlit.app/`](https://appapppy-fjy6mg2n2xbnrjzyezklmz.streamlit.app/)
+* **Local Streamlit Dashboard**: `http://localhost:8501`
 * **FastAPI REST Service**: `http://localhost:8000`
 * **Interactive API Documentation**: `http://localhost:8000/docs`
 * **Service Readiness Probe**: `http://localhost:8000/ready`
