@@ -12,5 +12,13 @@ pydantic>=2.4.0
 tqdm>=4.65.0
 torch>=2.0.0
 
+# Deployment & Web Serving
+fastapi>=0.100.0
+uvicorn>=0.20.0
+onnxruntime>=1.15.0
+streamlit>=1.25.0
+plotly>=5.15.0
+requests>=2.31.0
+
 # Testing
 pytest>=7.4.0

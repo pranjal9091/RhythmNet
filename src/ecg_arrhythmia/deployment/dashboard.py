@@ -17,6 +17,11 @@ import pandas as pd
 import streamlit as st
 import plotly.graph_objects as go
 
+import sys
+_src_dir = Path(__file__).resolve().parents[2]
+if str(_src_dir) not in sys.path:
+    sys.path.insert(0, str(_src_dir))
+
 from ecg_arrhythmia.deployment.service import (
     ONNXInferenceService,
     AAMI_CLASS_MAPPING,
@@ -623,6 +628,8 @@ def render_dashboard() -> None:
             st.info(EXPLAINABILITY_TEXT)
             st.caption("Gradient-based attribution (Grad-CAM 1D) requires a PyTorch gradient path and will be added in a separate dedicated explainability module.")
 
+
+main = render_dashboard
 
 if __name__ == "__main__":
     render_dashboard()
